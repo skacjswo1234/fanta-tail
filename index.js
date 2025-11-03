@@ -41,13 +41,24 @@ function prevSlide() {
 }
 
 // 이벤트 리스너 등록
-document.querySelector('.slider-btn.next').addEventListener('click', nextSlide);
-document.querySelector('.slider-btn.prev').addEventListener('click', prevSlide);
+document.querySelector('.slider-btn.next').addEventListener('click', () => {
+    nextSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
+
+document.querySelector('.slider-btn.prev').addEventListener('click', () => {
+    prevSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
 
 // Dot 클릭 이벤트
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
         showSlide(index);
+        stopAutoSlide();
+        startAutoSlide();
     });
 });
 
@@ -55,28 +66,38 @@ dots.forEach((dot, index) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
         prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
     } else if (e.key === 'ArrowRight') {
         nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
     }
 });
 
-// 자동 슬라이드 (선택사항 - 5초마다)
+// 자동 슬라이드 (3초마다)
 let autoSlideInterval;
 
 function startAutoSlide() {
+    // 기존 인터벌이 있으면 제거
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
     autoSlideInterval = setInterval(() => {
         nextSlide();
     }, 3000);
 }
 
 function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
 }
 
 // 자동 슬라이드 시작
 startAutoSlide();
 
-// 슬라이더에 마우스 올리면 자동 슬라이드 중지
+// 슬라이더에 마우스 올리면 자동 슬라이드 중지 (PC)
 const sliderContainer = document.querySelector('.slider-container');
 sliderContainer.addEventListener('mouseenter', stopAutoSlide);
 sliderContainer.addEventListener('mouseleave', startAutoSlide);
@@ -86,12 +107,15 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 sliderContainer.addEventListener('touchstart', (e) => {
+    stopAutoSlide();
     touchStartX = e.changedTouches[0].screenX;
 });
 
 sliderContainer.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
+    // 터치 끝나고 1초 후 자동 슬라이드 재시작
+    setTimeout(startAutoSlide, 1000);
 });
 
 function handleSwipe() {

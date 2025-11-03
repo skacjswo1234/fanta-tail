@@ -37,7 +37,7 @@ body {
 }
 
 .logo img {
-    height: 75px;
+    height: 70px;
     width: auto;
 }
 
@@ -114,21 +114,36 @@ body {
 .top-section,
 .main-section,
 .event-section,
-.webtoon-section,
-.footer {
+.webtoon-section {
     width: 100%;
     overflow: hidden;
+}
+
+/* 푸터 섹션 */
+.footer {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 35px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
 }
 
 .top-section img,
 .main-section img,
 .event-section img,
-.webtoon-section img,
-.footer img {
+.webtoon-section img {
     width: 100%;
     height: auto;
     display: block;
 }
+
 
 /* 웹툰 섹션 */
 .webtoon-section {
@@ -312,11 +327,33 @@ body {
     }
 
     .logo img {
-        height: 50px;
+        height: 80px;
     }
 
     .mobile-menu-btn {
         display: flex;
+    }
+
+    .footer {
+        padding: 35px 20px;
+    }
+
+    .footer-logo {
+        max-width: 350px;
+    }
+
+    .slider-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .slider-btn.prev {
+        margin-right: -10px;
+    }
+
+    .slider-btn.next {
+        margin-left: -10px;
     }
 
     .nav {
@@ -380,7 +417,7 @@ body {
 
 @media (max-width: 480px) {
     .logo img {
-        height: 45px;
+        height: 70px;
     }
 
     .mobile-menu-btn {
@@ -401,28 +438,42 @@ body {
         padding: 8px 15px;
     }
 
+    .footer {
+        padding: 15px;
+    }
+
+    .footer-logo {
+        max-width: 90%;
+    }
+
     .slider-container {
         width: 100%;
         max-width: 100%;
-        padding: 0 60px;
+        padding: 0;
+        gap: 0;
     }
 
     .slider-btn {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .slider-btn.prev {
+        left: 10px;
+        margin-right: 0;
+    }
+
+    .slider-btn.next {
+        right: 10px;
+        margin-left: 0;
     }
 
     .slider-btn svg {
         width: 20px;
         height: 20px;
-    }
-
-    .slider-btn.prev {
-        margin-right: -45px;
-    }
-
-    .slider-btn.next {
-        margin-left: -45px;
     }
 
     .screenshot-section {
