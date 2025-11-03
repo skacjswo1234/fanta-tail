@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판타지 온라인 - 그랜드 오픈</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/f-logo.png" alt="판타지 온라인 로고">
+            </div>
+            <button class="mobile-menu-btn" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="#home">HOME</a>
+                <span class="divider">|</span>
+                <a href="#reservation">사전 예약</a>
+                <span class="divider">|</span>
+                <a href="#event">Event</a>
+                <span class="divider">|</span>
+                <a href="#game-intro">게임 소개</a>
+                <span class="divider">|</span>
+                <a href="#webtoon">웹툰 소개</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 상단 섹션 -->
+    <section class="top-section" id="home">
+        <img src="images/top.png" alt="판타지 온라인 탑 이미지">
+    </section>
+
+    <!-- 메인 섹션 -->
+    <section class="main-section" id="reservation">
+        <img src="images/main.png" alt="판타지 온라인 메인">
+        <div class="download-buttons">
+            <a href="https://apps.apple.com" target="_blank" class="download-btn app-store" aria-label="App Store에서 다운로드"></a>
+            <a href="https://play.google.com" target="_blank" class="download-btn google-play" aria-label="Google Play에서 다운로드"></a>
+            <a href="https://store.steampowered.com" target="_blank" class="download-btn steam" aria-label="Steam에서 다운로드"></a>
+            <a href="https://onesto.re" target="_blank" class="download-btn one-store" aria-label="ONE store에서 다운로드"></a>
+        </div>
+    </section>
+
+    <!-- 이벤트 섹션 -->
+    <section class="event-section" id="event">
+        <img src="images/event.png" alt="이벤트">
+    </section>
+
+    <!-- 게임 스크린샷 섹션 -->
+    <section class="screenshot-section" id="game-intro">
+        <div class="slider-container">
+            <button class="slider-btn prev" aria-label="이전 이미지">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="images/intru-1.png" alt="게임 스크린샷 1">
+                    </div>
+                    <div class="slide">
+                        <img src="images/intre-2.png" alt="게임 스크린샷 2">
+                    </div>
+                    <div class="slide">
+                        <img src="images/inter-3.png" alt="게임 스크린샷 3">
+                    </div>
+                    <div class="slide">
+                        <img src="images/inter-4.png" alt="게임 스크린샷 4">
+                    </div>
+                    <div class="slide">
+                        <img src="images/inter-5.png" alt="게임 스크린샷 5">
+                    </div>
+                    <div class="slide">
+                        <img src="images/inter-6.png" alt="게임 스크린샷 6">
+                    </div>
+                    <div class="slide">
+                        <img src="images/inter-7.png" alt="게임 스크린샷 7">
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-btn next" aria-label="다음 이미지">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+            <span class="dot" data-index="5"></span>
+            <span class="dot" data-index="6"></span>
+        </div>
+    </section>
+
+    <!-- 웹툰 섹션 -->
+    <section class="webtoon-section" id="webtoon">
+        <img src="images/webtoon.png" alt="웹툰 소개">
+        <a href="https://example.com/webtoon" target="_blank" class="webtoon-btn" aria-label="웹툰 보러가기"></a>
+    </section>
+
+    <!-- 푸터 섹션 -->
+    <footer class="footer">
+        <img src="images/footer.png" alt="푸터">
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
