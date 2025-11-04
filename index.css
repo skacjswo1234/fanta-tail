@@ -33,6 +33,27 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'HMFMOLD';
+    src: url('images/font/HMFMOLD.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMFMMUEX';
+    src: url('images/font/HMFMMUEX.TTC') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMKMMAG';
+    src: url('images/font/HMKMMAG.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     background-color: #000;
@@ -96,8 +117,8 @@ html {
 .pc-nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'BlackHanSans', sans-serif;
-    font-size: 18px;
+    font-family: 'HMKMMAG', sans-serif;
+    font-size: 23px;
     transition: all 0.3s ease;
     padding: 8px 15px;
     position: relative;
@@ -122,6 +143,32 @@ html {
 
 .pc-nav a:hover::before {
     width: 80%;
+}
+
+/* Event 별 반짝임 효과 */
+.event-link .star {
+    display: inline-block;
+    animation: twinkle 1.5s ease-in-out infinite;
+    margin-left: 5px;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(15deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    75% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(-15deg);
+    }
 }
 
 .nav-divider {
@@ -202,7 +249,7 @@ html {
 .nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'BlackHanSans', sans-serif;
+    font-family: 'HMKMMAG', sans-serif;
     font-size: 18px;
     transition: color 0.3s ease;
     padding: 10px 20px;
