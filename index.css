@@ -12,30 +12,138 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'H2GTRE';
+    src: url('images/font/H2GTRE.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'COOPBL';
+    src: url('images/font/COOPBL.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMKMRHD';
+    src: url('images/font/HMKMRHD.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     background-color: #000;
     color: #fff;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-/* 메뉴 토글 버튼 - PC/모바일 공통 */
-.mobile-menu-btn {
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* 헤더 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header-logo {
+    height: 50px;
+    position: absolute;
+    left: 0;
+}
+
+.header-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-logo a {
+    display: block;
+    height: 100%;
+}
+
+/* PC 네비게이션 */
+.pc-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pc-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'BlackHanSans', sans-serif;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    position: relative;
+}
+
+.pc-nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.pc-nav a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.pc-nav a:hover::before {
+    width: 80%;
+}
+
+.nav-divider {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 모바일 메뉴 버튼 */
+.mobile-menu-btn {
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 50px;
     height: 45px;
-    background: #000;
+    background: transparent;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
     padding: 10px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1001;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -49,18 +157,23 @@ body {
     background-color: #fff;
     border-radius: 3px;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1002;
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
+    background-color: #fff;
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-10px);
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
+    background-color: #fff;
 }
 
 /* 사이드 네비게이션 - PC/모바일 공통 */
@@ -78,7 +191,7 @@ body {
     gap: 30px;
     padding: 20px;
     transition: right 0.3s ease;
-    z-index: 1000;
+    z-index: 999;
     border-left: 2px solid #333;
 }
 
@@ -89,7 +202,7 @@ body {
 .nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: 900;
+    font-family: 'BlackHanSans', sans-serif;
     font-size: 18px;
     transition: color 0.3s ease;
     padding: 10px 20px;
@@ -106,6 +219,11 @@ body {
 .webtoon-section {
     width: 100%;
     overflow: hidden;
+}
+
+/* 헤더가 fixed이므로 첫 섹션에 여백 추가 */
+.top-section {
+    margin-top: 60px;
 }
 
 /* 푸터 섹션 */
@@ -420,6 +538,28 @@ body {
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
+    .header {
+        padding: 12px 20px;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .header-logo {
+        height: 40px;
+        position: relative;
+        left: auto;
+    }
+
+    .pc-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
     .nav {
         width: 70%;
     }
@@ -496,6 +636,20 @@ body {
 }
 
 @media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .header-logo {
+        height: 35px;
+        position: relative;
+        left: auto;
+    }
+
     .mobile-menu-btn {
         width: 45px;
         height: 40px;
@@ -538,7 +692,7 @@ body {
     }
 
     .footer {
-        height: 75px;
+        height: 80px;
         padding: 0;
     }
 

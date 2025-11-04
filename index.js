@@ -146,7 +146,7 @@ document.querySelectorAll('.nav a').forEach(link => {
     });
 });
 
-// 부드러운 스크롤 네비게이션
+// 부드러운 스크롤 네비게이션 (사이드 네비게이션)
 document.querySelectorAll('.nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -159,6 +159,29 @@ document.querySelectorAll('.nav a').forEach(anchor => {
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// 부드러운 스크롤 네비게이션 (PC 헤더 네비게이션)
+document.querySelectorAll('.pc-nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // 헤더 높이만큼 오프셋 조정
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         }
