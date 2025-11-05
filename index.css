@@ -61,11 +61,13 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    line-height: 0;
 }
 
 html {
     margin: 0;
     padding: 0;
+    line-height: 0;
 }
 
 /* 헤더 */
@@ -79,6 +81,8 @@ html {
     padding: 15px 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin: 0;
+    height: 81px;
+    box-sizing: border-box;
 }
 
 .header-container {
@@ -88,12 +92,15 @@ html {
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 100%;
 }
 
 .header-logo {
     height: 50px;
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .header-logo img {
@@ -150,6 +157,7 @@ html {
     display: inline-block;
     animation: twinkle 1.5s ease-in-out infinite;
     margin-left: 5px;
+    color: #ffd700;
 }
 
 @keyframes twinkle {
@@ -190,7 +198,8 @@ html {
     padding: 10px;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 1001;
+    z-index: 1002;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-btn:hover {
@@ -205,7 +214,8 @@ html {
     border-radius: 3px;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 1002;
+    z-index: 1003;
+    pointer-events: none;
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
@@ -237,13 +247,62 @@ html {
     align-items: center;
     gap: 30px;
     padding: 20px;
+    padding-top: 80px;
     transition: right 0.3s ease;
-    z-index: 999;
+    z-index: 1000;
     border-left: 2px solid #333;
 }
 
 .nav.active {
     right: 0;
+}
+
+/* 사이드 네비게이션 닫기 버튼 */
+.nav-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 0;
+}
+
+.nav-close-btn span {
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-close-btn span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.nav-close-btn span:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.nav-close-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.nav-close-btn:hover span {
+    background-color: #ffd700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.nav-close-btn:active {
+    transform: rotate(90deg) scale(0.95);
 }
 
 .nav a {
@@ -260,343 +319,150 @@ html {
 }
 
 /* 이미지 섹션 공통 스타일 */
-.top-section,
-.main-section,
-.event-section,
-.webtoon-section {
+.image-section {
     width: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    line-height: 0;
+    font-size: 0;
+    display: block;
+    position: relative;
 }
 
 /* 헤더가 fixed이므로 첫 섹션에 여백 추가 */
-.top-section {
-    margin-top: 60px;
+.top-section-1 {
+    margin-top: 81px;
+}
+
+/* top-section-2도 id를 가지고 있으므로 여백 제거 보장 */
+.top-section-2 {
+    margin-top: 0 !important;
+}
+
+/* 모든 섹션이 붙어있도록 추가 보장 */
+.top-section-2,
+.main-section-1,
+.main-section-2,
+.webtoon-section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 섹션과 섹션 사이 여백 완전 제거 */
+section + section {
+    margin-top: 0 !important;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    line-height: 0;
+}
+
+/* 스토어 버튼 영역 */
+.store-buttons {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.store-btn {
+    width: 250px;
+    height: 70px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    opacity: 0;
+    /* 투명하게 만들어서 이미지의 버튼이 보이도록 */
+}
+
+.store-btn:hover {
+    opacity: 0.1;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
 }
 
 /* 푸터 섹션 */
 .footer {
     width: 100%;
-    height: 150px;
+    height: 80px;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
     overflow: hidden;
+    margin: 0;
+    border: none;
 }
 
-.footer-logo {
+.footer-container {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.footer-mobile {
-    display: none;
-}
-
-.top-section img,
-.main-section img,
-.event-section img,
-.webtoon-section img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-/* 웹툰 섹션 */
-.webtoon-section {
-    position: relative;
-}
-
-.webtoon-btn {
-    position: absolute;
-    bottom: 8%;
-    right: 10%;
-    width: 28%;
-    height: 0;
-    padding-bottom: 7%;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    border-radius: 15px;
-}
-
-.webtoon-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    opacity: 0.9;
-}
-
-.webtoon-btn:active {
-    transform: translateY(-2px) scale(1.02);
-}
-
-/* 메인 섹션 다운로드 버튼 */
-.main-section {
-    position: relative;
-}
-
-/* 메인 섹션 텍스트 스타일 */
-.main-text-top {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'BlackHanSans', sans-serif;
-    font-size: 98px;
-    color: #fff;
-    text-align: center;
-    z-index: 10;
-    white-space: nowrap;
-    text-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.8),
-        -1px -1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.main-text-bottom {
-    position: absolute;
-    top: 68%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'BlackHanSans', sans-serif;
-    font-size: 86px;
-    color: #fff;
-    text-align: center;
-    z-index: 10;
-    white-space: nowrap;
-    text-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.8),
-        -1px -1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.download-buttons {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
     max-width: 1400px;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3%;
-    padding: 0 2%;
-}
-
-.download-btn {
-    flex: 1;
-    height: 0;
-    padding-bottom: 6.5%;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    border-radius: 80px;
-    background: transparent;
-    position: relative;
-    overflow: visible;
-}
-
-/* App Store 버튼 - 왼쪽으로 더 이동 */
-.btn-app-store {
-    margin-left: -5%;
-}
-
-/* STEAM 버튼 - 오른쪽으로 더 이동 */
-.btn-steam {
-    margin-left: 4.5%;
-}
-
-/* ONE store 버튼 - 오른쪽으로 더 이동 */
-.btn-one-store {
-    margin-left: 5%;
-}
-
-.download-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, 
-        rgba(255, 255, 255, 0.8) 0%, 
-        rgba(255, 215, 0, 0.5) 25%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        rgba(255, 215, 0, 0.1) 70%, 
-        transparent 100%);
-    opacity: 0;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
-    mix-blend-mode: screen;
-}
-
-.download-btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, 
-        rgba(255, 215, 0, 0.4) 0%, 
-        rgba(255, 255, 255, 0.2) 30%, 
-        rgba(255, 215, 0, 0.1) 50%, 
-        transparent 70%);
-    opacity: 0;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 1;
-    filter: blur(20px);
-    mix-blend-mode: screen;
-}
-
-
-/* 게임 스크린샷 슬라이더 섹션 */
-.screenshot-section {
-    width: 100%;
-    background-color: #000;
-    padding: 20px 0;
-    position: relative;
-}
-
-.slider-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 72px;
-    padding: 0 60px;
-    animation: slideHorizontal 6s ease-in-out infinite;
-}
-
-@keyframes slideHorizontal {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(30px);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    75% {
-        transform: translateX(-30px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.slider-wrapper {
-    flex: 1;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    display: none;
-}
-
-.slide.active {
-    display: block;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-}
-
-.slider-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    z-index: 10;
+    align-items: center;
+    gap: 4px;
+    padding: 0 20px;
 }
 
-.slider-btn:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.8);
-    transform: scale(1.1);
+.footer-text-line1 {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-size: 13px;
+    color: #666666;
+    text-align: center;
+    line-height: 1.4;
 }
 
-.slider-btn:active {
-    transform: scale(0.95);
-}
-
-.slider-btn.prev {
-    margin-right: -60px;
-}
-
-.slider-btn.next {
-    margin-left: -60px;
-}
-
-/* 슬라이더 인디케이터 */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.2);
-}
-
-.dot.active {
-    background-color: #fff;
-    width: 30px;
-    border-radius: 6px;
+.footer-text-line2 {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-size: 11px;
+    color: #000000;
+    text-align: center;
+    line-height: 1.4;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .header {
         padding: 12px 20px;
+        height: 65px;
     }
 
     .header-container {
         justify-content: space-between;
+        height: 100%;
     }
 
     .header-logo {
         height: 40px;
         position: relative;
         left: auto;
+        top: auto;
+        transform: none;
+    }
+
+    .top-section-1 {
+        margin-top: 95px;
     }
 
     .pc-nav {
@@ -611,90 +477,81 @@ html {
         width: 70%;
     }
 
-    .main-text-top {
-        font-size: 28px;
-        top: 4%;
-        white-space: nowrap;
+    .nav-close-btn {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
     }
 
-    .main-text-bottom {
-        font-size: 34px;
-        top: 48%;
-        white-space: nowrap;
-    }
-
-    .download-buttons {
-        bottom: 4.5%;
-        width: 95%;
-        gap: 2%;
-    }
-
-    .download-btn {
-        padding-bottom: 7%;
+    .nav-close-btn span {
+        width: 22px;
+        height: 2.5px;
     }
 
     .footer {
-        height: 75px;
+        height: 80px;
         padding: 0;
     }
 
-    .footer-pc {
-        display: none;
+    .footer-container {
+        padding: 0 15px;
     }
 
-    .footer-mobile {
-        display: block;
+    .footer-text-line1 {
+        font-size: 12px;
     }
 
-    .footer-logo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    .footer-text-line2 {
+        font-size: 10px;
     }
 
-    .slider-container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 40px;
+    .image-section {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
 
-    .slider-btn {
-        width: 40px;
-        height: 40px;
+    .top-section-2,
+    .main-section-1,
+    .main-section-2,
+    .webtoon-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 
-    .slider-btn svg {
-        width: 24px;
-        height: 24px;
+    .store-buttons {
+        bottom: 6%;
+        gap: 30px;
     }
 
-    .slider-btn.prev {
-        margin-right: -50px;
-    }
-
-    .slider-btn.next {
-        margin-left: -50px;
-    }
-
-    .screenshot-section {
-        padding: 15px 0;
+    .store-btn {
+        width: 50px;
+        height: 50px;
     }
 }
 
 @media (max-width: 480px) {
     .header {
         padding: 10px 15px;
+        height: 56px;
     }
 
     .header-container {
         justify-content: space-between;
+        height: 100%;
     }
 
     .header-logo {
         height: 35px;
         position: relative;
         left: auto;
+        top: auto;
+        transform: none;
+    }
+
+    .top-section-1 {
+        margin-top: 56px !important;
     }
 
     .mobile-menu-btn {
@@ -711,31 +568,21 @@ html {
         width: 80%;
     }
 
+    .nav-close-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-close-btn span {
+        width: 20px;
+        height: 2px;
+    }
+
     .nav a {
         font-size: 16px;
         padding: 8px 15px;
-    }
-
-    .main-text-top {
-        font-size: 19px;
-        top: 20%;
-        white-space: nowrap;
-    }
-
-    .main-text-bottom {
-        font-size: 20px;
-        top: 68%;
-        white-space: nowrap;
-    }
-
-    .download-buttons {
-        bottom: 4%;
-        width: 98%;
-        gap: 1.5%;
-    }
-
-    .download-btn {
-        padding-bottom: 8.5%;
     }
 
     .footer {
@@ -743,53 +590,40 @@ html {
         padding: 0;
     }
 
-    .footer-pc {
-        display: none;
+    .footer-container {
+        padding: 0 10px;
+        gap: 3px;
     }
 
-    .footer-mobile {
-        display: block;
+    .footer-text-line1 {
+        font-size: 11px;
     }
 
-    .footer-logo {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+    .footer-text-line2 {
+        font-size: 9px;
     }
 
-    .slider-container {
-        width: 88%;
-        max-width: 100%;
-        padding: 0;
-        gap: 0;
+    .image-section {
+        padding: 0 !important;
+        border: none !important;
     }
 
-    .slider-btn {
-        width: 40px;
+    .top-section-2,
+    .main-section-1,
+    .main-section-2,
+    .webtoon-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .store-buttons {
+        bottom: 5%;
+        gap: 30px;
+    }
+
+    .store-btn {
+        width: 50px;
         height: 40px;
-        position: absolute;
-        z-index: 10;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .slider-btn.prev {
-        left: 10px;
-        margin-right: 0;
-    }
-
-    .slider-btn.next {
-        right: 10px;
-        margin-left: 0;
-    }
-
-    .slider-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .screenshot-section {
-        padding: 10px 0;
     }
 }
 
