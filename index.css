@@ -124,8 +124,9 @@ html {
 .pc-nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'HMKMMAG', sans-serif;
+    font-family: 'BlackHanSans', sans-serif;
     font-size: 23px;
+    font-weight: normal;
     transition: all 0.3s ease;
     padding: 8px 15px;
     position: relative;
@@ -308,8 +309,9 @@ html {
 .nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'HMKMMAG', sans-serif;
+    font-family: 'BlackHanSans', sans-serif;
     font-size: 18px;
+    font-weight: normal;
     transition: color 0.3s ease;
     padding: 10px 20px;
 }
@@ -647,7 +649,9 @@ section + section {
     }
 
     .nav a {
+        font-family: 'BlackHanSans', sans-serif;
         font-size: 16px;
+        font-weight: normal;
         padding: 8px 15px;
     }
 
