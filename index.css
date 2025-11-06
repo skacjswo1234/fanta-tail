@@ -707,14 +707,14 @@ section + section {
     /* HOME 섹션 (상단) 모바일 스타일 - 명시적으로 분리 */
     .top-section-1 .store-buttons {
         bottom: 5% !important;
-        gap: 20px !important;
+        gap: 5px !important;
         left: auto !important;
         right: 22% !important;
         transform: none !important;
     }
 
     .top-section-1 .store-btn {
-        width: 40px !important;
+        width: 55px !important;
         height: 55px !important;
     }
 
@@ -729,13 +729,13 @@ section + section {
     /* Event 섹션 (하단) 모바일 스타일 - 명시적으로 분리 */
     .main-section-1 .store-buttons {
         bottom: 0% !important;
-        gap: 20px !important;
-        left: 50% !important;
+        gap: 3px !important;
+        left: 51% !important;
         transform: translateX(-50%) !important;
     }
 
     .main-section-1 .store-btn {
-        width: 30px !important;
+        width: 50px !important;
         height: 110px !important;
     }
 }
