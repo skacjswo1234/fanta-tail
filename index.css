@@ -395,7 +395,7 @@ section + section {
 
 /* HOME 섹션 (상단) 스토어 버튼 스타일 */
 .top-section-1 .store-buttons {
-    bottom: 8%;
+    bottom: 2%;
     left: auto;
     right: 23%;
     transform: none;
@@ -404,7 +404,7 @@ section + section {
 
 .top-section-1 .store-btn {
     width: 180px;
-    height: 70px;
+    height: 200px;
 }
 
 .top-section-1 .store-btn.steam-btn {
@@ -423,7 +423,7 @@ section + section {
 
 /* Event 섹션 (하단) 스토어 버튼 스타일 */
 .main-section-1 .store-buttons {
-    bottom: 16%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     gap: 70px;
@@ -431,7 +431,7 @@ section + section {
 
 .main-section-1 .store-btn {
     width: 200px;
-    height: 70px;
+    height: 400px;
 }
 
 .main-section-1 .store-btn:hover {
@@ -561,39 +561,39 @@ section + section {
         margin-bottom: 0 !important;
     }
 
-    /* HOME 섹션 (상단) 모바일 스타일 */
+    /* HOME 섹션 (상단) 모바일 스타일 - 명시적으로 분리 */
     .top-section-1 .store-buttons {
-        bottom: 5%;
-        gap: 20px;
-        left: auto;
-        right: 22%;
-        transform: none;
+        bottom: 5% !important;
+        gap: 20px !important;
+        left: auto !important;
+        right: 22% !important;
+        transform: none !important;
     }
 
     .top-section-1 .store-btn {
-        width: 40px;
-        height: 20px;
+        width: 60px !important;
+        height: 35px !important;
     }
 
     .top-section-1 .store-btn.steam-btn {
-        margin-left: -10px;
+        margin-left: -10px !important;
     }
 
     .top-section-1 .store-btn.onestore-btn {
-        margin-left: -10px;
+        margin-left: -10px !important;
     }
 
-    /* Event 섹션 (하단) 모바일 스타일 */
+    /* Event 섹션 (하단) 모바일 스타일 - 명시적으로 분리 */
     .main-section-1 .store-buttons {
-        bottom: 6%;
-        gap: 30px;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 0% !important;
+        gap: 15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     .main-section-1 .store-btn {
-        width: 50px;
-        height: 50px;
+        width: 30px !important;
+        height: 110px !important;
     }
 }
 
@@ -682,39 +682,39 @@ section + section {
         margin-bottom: 0 !important;
     }
 
-    /* HOME 섹션 (상단) 모바일 스타일 */
+    /* HOME 섹션 (상단) 모바일 스타일 - 명시적으로 분리 */
     .top-section-1 .store-buttons {
-        bottom: 5%;
-        gap: 20px;
-        left: auto;
-        right: 22%;
-        transform: none;
+        bottom: 5% !important;
+        gap: 20px !important;
+        left: auto !important;
+        right: 22% !important;
+        transform: none !important;
     }
 
     .top-section-1 .store-btn {
-        width: 40px;
-        height: 20px;
+        width: 40px !important;
+        height: 55px !important;
     }
 
     .top-section-1 .store-btn.steam-btn {
-        margin-left: -10px;
+        margin-left: -10px !important;
     }
 
     .top-section-1 .store-btn.onestore-btn {
-        margin-left: -10px;
+        margin-left: -10px !important;
     }
 
-    /* Event 섹션 (하단) 모바일 스타일 */
+    /* Event 섹션 (하단) 모바일 스타일 - 명시적으로 분리 */
     .main-section-1 .store-buttons {
-        bottom: 15%;
-        gap: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 0% !important;
+        gap: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     .main-section-1 .store-btn {
-        width: 30px;
-        height: 20px;
+        width: 30px !important;
+        height: 110px !important;
     }
 }
 
