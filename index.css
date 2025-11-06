@@ -377,6 +377,11 @@ section + section {
     justify-content: center;
     align-items: center;
     z-index: 10;
+    pointer-events: none;
+}
+
+.store-buttons > * {
+    pointer-events: auto;
 }
 
 .store-btn {
@@ -386,6 +391,13 @@ section + section {
     background: transparent;
     border: none;
     opacity: 0;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     /* 투명하게 만들어서 이미지의 버튼이 보이도록 */
 }
 
@@ -393,6 +405,12 @@ section + section {
     opacity: 0.1;
     background: rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
+}
+
+.store-btn:active {
+    opacity: 0.15;
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(0.98);
 }
 
 /* HOME 섹션 (상단) 스토어 버튼 스타일 */
